@@ -678,6 +678,8 @@ class WebDriver(webdriver.Remote):
         self.execute(Command.TOGGLE_LOCATION_SERVICES, {})
         return self
 
+    def screenshot(self):
+        return self.execute(Command.GET_SCREENSHOT)['value']
 
     def _addCommands(self):
         self.command_executor._commands[Command.CONTEXTS] = \
@@ -757,6 +759,10 @@ class WebDriver(webdriver.Remote):
             ('POST', '/session/$sessionId/appium/settings')
         self.command_executor._commands[Command.TOGGLE_LOCATION_SERVICES] = \
             ('POST', '/session/$sessionId/appium/device/toggle_location_services')
+
+        #custom screenshot
+        self.command_executor._commands[Command.GET_SCREENSHOT] = \
+            ('GET', '/session/$sessionId/screenshot')
 
 
 # monkeypatched method for WebElement

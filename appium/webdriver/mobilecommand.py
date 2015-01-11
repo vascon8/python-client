@@ -54,3 +54,6 @@ class MobileCommand(object):
     START_ACTIVITY = 'startActivity'
     GET_SETTINGS = 'getSettings'
     UPDATE_SETTINGS = 'updateSettings'
+
+    #Custom
+    GET_SCREENSHOT = 'getScreenshot'
